@@ -6,7 +6,4 @@ data class CategoryProperty(
   @Json(name = "trivia_categories") val triviaCategories: List<Category>
 )
 
-class Category(
-  val id: String,
-  val name: String
-)
+

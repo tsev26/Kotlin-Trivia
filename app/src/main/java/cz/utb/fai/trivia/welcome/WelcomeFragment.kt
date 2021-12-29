@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import cz.utb.fai.trivia.R
 import cz.utb.fai.trivia.databinding.FragmentWelcomeBinding
+import android.widget.ArrayAdapter
+import androidx.lifecycle.Observer
+import cz.utb.fai.trivia.network.Category
+
 
 class WelcomeFragment : Fragment() {
 
@@ -28,8 +32,16 @@ class WelcomeFragment : Fragment() {
     // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
     binding.lifecycleOwner = this
 
-    // Giving the binding access to the OverviewViewModel
+    // Giving the binding access to the WelcomeViewModel
     binding.viewModel = viewModel
+
+    val spinner = binding.spinner
+
+    val adapter: ArrayAdapter<String> =
+      ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item)
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    spinner.adapter = adapter
+
 
     setHasOptionsMenu(true)
     return binding.root
