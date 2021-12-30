@@ -9,5 +9,14 @@
         android:id="@+id/welcomeFragment"
         android:name="cz.utb.fai.trivia.welcome.WelcomeFragment"
         android:label="welcome_fragment"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="cz.utb.fai.trivia.questions.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" />
 </navigation>
