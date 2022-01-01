@@ -22,9 +22,15 @@ class QuestionFragment : Fragment() {
   ): View? {
 
     arguments = getArguments()
+    val user = arguments?.getString("USER")
+    val idCategory = arguments?.getInt("ID_CATEGORY")
+
     val binding = FragmentQuestionBinding.inflate(inflater)
     binding.lifecycleOwner = this
     binding.viewModel = viewModel
+
+    val questions = viewModel.getCategoryProperties(idCategory!!)
+
 
     return binding.root
   }

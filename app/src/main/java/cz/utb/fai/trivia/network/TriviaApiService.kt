@@ -6,6 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 private const val BASE_URL = "https://opentdb.com"
 
@@ -22,10 +23,10 @@ private val retrofit = Retrofit.Builder()
 
 interface TriviaApiService {
   @GET("api.php?amount=10")
-  suspend fun getQuestions(): String
+  suspend fun getQuestions(): QuestionProperty
 
-  @GET("api.php?amount=10&category={id}")
-  suspend fun getQuestionsByCategory(@Path("id") id: Int): String
+  @GET("api.php?amount=10&category=")
+  suspend fun getQuestionsByCategory(@Query("id") id: Int): QuestionProperty
 
   @GET("api_category.php")
   suspend fun getCategories(): CategoryProperty

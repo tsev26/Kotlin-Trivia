@@ -8,5 +8,5 @@ data class Question(
   val difficulty: String,
   val question: String,
   @Json(name = "correct_answer") val correctAnswer: String,
-  @Json(name = "incorrect_answer") val incorrectAnswer: List<String>
+  @Json(name = "incorrect_answers") val incorrectAnswer: List<String>
 )
