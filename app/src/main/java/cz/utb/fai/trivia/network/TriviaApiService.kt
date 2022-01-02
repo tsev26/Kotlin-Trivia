@@ -25,8 +25,8 @@ interface TriviaApiService {
   @GET("api.php?amount=10")
   suspend fun getQuestions(): QuestionProperty
 
-  @GET("api.php?amount=10&category=")
-  suspend fun getQuestionsByCategory(@Query("id") id: Int): QuestionProperty
+  @GET("api.php?amount=10&")
+  suspend fun getQuestionsByCategory(@Query("category") id: Int): QuestionProperty
 
   @GET("api_category.php")
   suspend fun getCategories(): CategoryProperty

@@ -85,22 +85,22 @@ class QuestionViewModel : ViewModel() {
     }
   }
 
-  fun getQuestionNumber(num : Int) {
+  private fun getQuestionNumber(num : Int) {
     _currentQuestion.value = _questionData.value!!.get(num)
     _currentQuestionString.value = convertHtmlString(_currentQuestion.value!!.question)
     allAnswers.clear()
     allAnswers.add(currentQuestion.value!!.correctAnswer)
     allAnswers.addAll(currentQuestion.value!!.incorrectAnswer)
     allAnswers.shuffle()
-    _firstAnswer.value = if (allAnswers.size > 0) allAnswers.get(0) else ""
-    _secondAnswer.value = if (allAnswers.size > 1) allAnswers.get(1) else ""
-    _thirdAnswer.value = if (allAnswers.size > 2) allAnswers.get(2) else ""
-    _fourthAnswer.value = if (allAnswers.size > 3) allAnswers.get(3) else ""
+    _firstAnswer.value = if (allAnswers.size > 0) convertHtmlString(allAnswers[0]) else ""
+    _secondAnswer.value = if (allAnswers.size > 1) convertHtmlString(allAnswers[1]) else ""
+    _thirdAnswer.value = if (allAnswers.size > 2) convertHtmlString(allAnswers[2]) else ""
+    _fourthAnswer.value = if (allAnswers.size > 3) convertHtmlString(allAnswers[3]) else ""
     _answerVisibility.value = if (currentQuestion!!.value!!.type == "boolean") View.INVISIBLE else View.VISIBLE
     _buttonName.value = if (num == questionData.value!!.size) "FINISH" else "SUBMIT"
   }
 
-  fun convertHtmlString(htmlString: String) : String{
+  private fun convertHtmlString(htmlString: String) : String{
     return Html.fromHtml(htmlString, Html.FROM_HTML_MODE_LEGACY).toString()
   }
 
