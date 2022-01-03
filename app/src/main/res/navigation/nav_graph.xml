@@ -18,5 +18,18 @@
         android:id="@+id/questionFragment"
         android:name="cz.utb.fai.trivia.questions.QuestionFragment"
         android:label="fragment_question"
-        tools:layout="@layout/fragment_question" />
+        tools:layout="@layout/fragment_question" >
+        <action
+            android:id="@+id/action_questionFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="cz.utb.fai.trivia.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>

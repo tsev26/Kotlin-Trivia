@@ -68,7 +68,7 @@ class QuestionViewModel : ViewModel() {
     {
       viewModelScope.launch {
         try {
-          val listResult = if (id_category == 0) {
+          val listResult = if (id_category == 1) {
             TriviaApi.retrofitService.getQuestions()
           } else {
             TriviaApi.retrofitService.getQuestionsByCategory(id_category)

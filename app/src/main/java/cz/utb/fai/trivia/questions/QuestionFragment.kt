@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import cz.utb.fai.trivia.R
 import cz.utb.fai.trivia.databinding.FragmentQuestionBinding
 
@@ -78,7 +79,13 @@ class QuestionFragment : Fragment(), View.OnClickListener {
           when {
             mCurrentPosition <= viewModel.questionData.value!!.size -> { setQuestion() }
             else -> {
-              Toast.makeText(requireContext(), "You have successfully completed the Quiz", Toast.LENGTH_SHORT).show()
+
+              val bundle = Bundle()
+              bundle.putString("USER", mUserName)
+              bundle.putInt("CORRECT_ANSWERS", mCorrectAnswers!!)
+
+              v.findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
+              //Toast.makeText(requireContext(), "You have successfully completed the Quiz", Toast.LENGTH_SHORT).show()
             }
           }
         }else{
