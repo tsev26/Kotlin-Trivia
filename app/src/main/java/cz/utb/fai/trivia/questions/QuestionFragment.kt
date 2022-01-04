@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -82,7 +81,7 @@ class QuestionFragment : Fragment(), View.OnClickListener {
 
               val bundle = Bundle()
               bundle.putString("USER", mUserName)
-              bundle.putInt("CORRECT_ANSWERS", mCorrectAnswers!!)
+              bundle.putInt("CORRECT_ANSWERS", mCorrectAnswers)
 
               v.findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
               //Toast.makeText(requireContext(), "You have successfully completed the Quiz", Toast.LENGTH_SHORT).show()

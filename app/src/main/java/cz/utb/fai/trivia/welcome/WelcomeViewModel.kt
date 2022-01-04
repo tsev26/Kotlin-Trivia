@@ -41,12 +41,12 @@ class WelcomeViewModel : ViewModel() {
         val listResult = TriviaApi.retrofitService.getCategories()
         val allCategoryOption = Category(0, "All categories")
 
-        categoryData.value?.add(allCategoryOption)
-        categoryData.value?.addAll(listResult.triviaCategories)
+        _categoryData.value?.add(allCategoryOption)
+        _categoryData.value?.addAll(listResult.triviaCategories)
 
-        spinnerData.value?.add("All categories")
+        _spinnerData.value?.add("All categories")
         for (category in listResult.triviaCategories){
-          spinnerData.value?.add(category.name)
+          _spinnerData.value?.add(category.name)
           categoryMap.put(category.name,category.id)
         }
         _response.value = "Success: ${categoryData.value?.size} trivia categories retrieved"

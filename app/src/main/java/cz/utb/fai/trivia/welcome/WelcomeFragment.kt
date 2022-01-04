@@ -1,8 +1,6 @@
 package cz.utb.fai.trivia.welcome
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
@@ -12,12 +10,8 @@ import android.widget.Toast
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.lifecycle.*
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import cz.utb.fai.trivia.R
 import cz.utb.fai.trivia.network.CategoryData
-import cz.utb.fai.trivia.questions.QuestionFragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 
 
 class WelcomeFragment : Fragment() {
@@ -41,16 +35,18 @@ class WelcomeFragment : Fragment() {
 
     val categoryData = CategoryData()
 
-    var list: MutableList<String> = arrayListOf()
+    val list: MutableList<String> = arrayListOf()
 
     for (cat in categoryData.cateforyList){
       list.add(cat.name)
     }
 
     val spinner = binding.spinner
-    var adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, list)
+    val adapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, list) //viewModel.spinnerData.value!!
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    adapter.setNotifyOnChange(true)
     spinner.adapter = adapter
+
 
     spinner.onItemSelectedListener = object : OnItemSelectedListener {
       override fun onItemSelected(

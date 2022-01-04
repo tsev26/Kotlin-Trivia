@@ -96,7 +96,7 @@ class QuestionViewModel : ViewModel() {
     _secondAnswer.value = if (allAnswers.size > 1) convertHtmlString(allAnswers[1]) else ""
     _thirdAnswer.value = if (allAnswers.size > 2) convertHtmlString(allAnswers[2]) else ""
     _fourthAnswer.value = if (allAnswers.size > 3) convertHtmlString(allAnswers[3]) else ""
-    _answerVisibility.value = if (currentQuestion!!.value!!.type == "boolean") View.INVISIBLE else View.VISIBLE
+    _answerVisibility.value = if (currentQuestion.value!!.type == "boolean") View.INVISIBLE else View.VISIBLE
     _buttonName.value = if (num == questionData.value!!.size) "FINISH" else "SUBMIT"
   }
 
