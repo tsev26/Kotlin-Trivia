@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_welcomeFragment_to_questionFragment"
             app:destination="@id/questionFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
@@ -30,6 +33,14 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/action_resultFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="cz.utb.fai.trivia.score.ScoreFragment"
+        android:label="ScoreFragment" >
+        <action
+            android:id="@+id/action_scoreFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

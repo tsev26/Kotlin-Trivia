@@ -69,6 +69,11 @@ class WelcomeFragment : Fragment() {
     }
 
 
+    binding.btnHighscore.setOnClickListener {
+        view: View ->
+        view.findNavController().navigate(R.id.action_welcomeFragment_to_scoreFragment)
+    }
+
     binding.btnStart.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER")
     { view: View ->
       if (binding.etName.text.isNullOrEmpty())
